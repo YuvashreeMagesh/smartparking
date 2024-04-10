@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Slot Details
+{% endblock title %}
+
+{% block body %}
+
+<div class="row">
+
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+<br>
+
+<h4 class="text-center bg-danger text-white">Update Your Slot</h4>
+<br>
+
+
+<form action="/edit/{{posts.uid}}" method="post" class="jumbotron">
+
+
+
+
+<div class="form-group">
+
+<input type="email" class="form-control" id="email" value={{current_user.email}} name="email" required>
+
+</div>
+
+<div class="form-group">
+
+<input type="text" class="form-control" id="name" name="name" value={{posts.name}} placeholder="Full Name" required>
+
+</div>
+
+<div class="form-group">
+
+
+<select class="form-control" id="vtype" name="vtype" required>
+<option selected>{{posts.vtype}} </option>
+<option value="s1">car</option>
+<option value="s2">bike</option>
+<option value="s1">van</option>
+ 
+<option value="s2">bus</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+
+<select class="form-control" id="slot" name="slot" required>
+<option selected>{{posts.slot}} </option>
+<option value="s1">08:00 to 09:00</option>
+<option value="s2">09:00 to 10:00</option>
+<option value="s1">10:00 to 11:00</option>
+<option value="s2">09:00 to 12:00</option>
+<option value="s1">12:00 to 13:00</option>
+<option value="s2">13:00 to 14:00</option>
+<option value="s1">14:00 to 15:00</option>
+<option value="s2">15:00 to 16:00</option>
+<option value="s1">16:00 to 17:00</option>
+<option value="s2">17:00 to 18:00</option>
+<option value="s1">18:00 to 19:00</option>
+<option value="s2">19:00 to 20:00</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<input type="date" class="form-control" value={{posts.date}} name="date" placeholder="date" required>
+
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control"
+value={{posts.vehicle}} id="vehicle" name="vehicle" placeholder="vehicle" required>
+
+</div>
+<div class="form-group">
+
+<input type="number" class="form-control"
+value={{posts.number}} id="number" name="number" placeholder="Phone Number" required>
+
+</div>
+ 
+
+
+<button type="submit" class="btn btn-warning btn-sm btn- block">Update</button>
+</form>
+
+
+
+
+
+</div>
+<div class="col-md-4"></div>
+</div>
+
+
+{% endblock body %}
+
