@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %} Slot Booking
+{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-3">
+<div class="row">
+
+<div class="col-md-5">
+<div class="card" style="width: 18rem;">
+ 
+<img src="static/images/img1.jpeg" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">SMART PARKING APPLICATION</h5>
+<p class="card-text">Branches</p>
+</div>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">Vellore</li>
+<li class="list-group-item">Chennai</li>
+<li class="list-group-item">Delhi</li>
+</ul>
+<div class="card-body">
+<a href="/aboutus" class="card-link">About Us</a>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-5">
+
+<h4 class="text-center bg-dark text-white">Book Your Slot</h4>
+<br>
+
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+{{message}}
+
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+
+<form action="/booking" method="post" class="jumbotron">
+
+
+
+
+<div class="form-group">
+ 
+<input type="email" class="form-control" id="email" value={{current_user.email}} name="email" required>
+
+</div>
+
+<div class="form-group">
+
+<input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+
+</div>
+<div class="form-group">
+
+
+
+
+<select class="form-control" id="vtype" name="vtype" required>
+<option selected>type</option>
+<option value="car">car</option>
+<option value="bike">bike</option>
+<option value="van">van</option>
+<option value="bus">bus</option>
+
+</select>
+</div>
+
+
+<div class="form-group">
+
+
+
+
+<select class="form-control" id="slot" name="slot" required>
+<option selected>Slot</option>
+<option value="s1">08:00 to 09:00</option>
+<option value="s2">09:00 to 10:00</option>
+<option value="s1">10:00 to 11:00</option>
+<option value="s2">09:00 to 12:00</option>
+<option value="s1">12:00 to 13:00</option>
+<option value="s2">13:00 to 14:00</option>
+<option value="s1">14:00 to 15:00</option>
+<option value="s2">15:00 to 16:00</option>
+<option value="s1">16:00 to 17:00</option>
+<option value="s2">17:00 to 18:00</option>
+<option value="s1">18:00 to 19:00</option>
+<option value="s2">19:00 to 20:00</option>
+
+</select>
+</div>
+ 
+
+<div class="form-group">
+
+<input type="date" class="form-control" name="date" placeholder="date" required>
+
+</div>
+<div class="form-group">
+
+<input type="text" class="form-control" id="vehicle" name="vehicle" placeholder="vehicle number" required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<input type="number" class="form-control" id="number" name="number" placeholder="Phone Number" required>
+
+</div>
+
+
+<button type="submit" class="btn btn-success btn-sm btn-block">Book</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock body %}
+
+
